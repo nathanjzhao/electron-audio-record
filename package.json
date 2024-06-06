@@ -1,7 +1,7 @@
 {
   "name": "electron-audio-record",
   "author": "Nathan Zhao <nathanzh@stanford.edu>",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Record a microphone input stream using SoX binaries for Electron apps",
   "license": "ISC",
   "main": "index.js",
