@@ -26,7 +26,7 @@ class Recording {
     const recorder = recorders.load(this.options.recorder)
     const { cmd, args, spawnOptions = {} } = recorder(this.options)
 
-    this.cmd = getPath() + cmd;
+    this.cmd = getPath() + '/' + cmd;
     this.args = args
     this.cmdOptions = Object.assign({ encoding: 'binary', stdio: 'pipe' }, spawnOptions)
 

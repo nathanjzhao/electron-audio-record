@@ -1,12 +1,12 @@
 {
-  "name": "node-record-with-binaries",
+  "name": "electron-audio-record",
   "author": "Nathan Zhao <nathanzh@stanford.edu>",
   "version": "1.0.2",
   "description": "Record a microphone input stream using SoX binaries for Electron apps",
   "license": "ISC",
   "main": "index.js",
   "dependencies": {
-    "debug": "^2.6.8"
+    "debug": "^2.6.9"
   },
   "devDependencies": {
     "standard": "^13.0.2"
@@ -24,12 +24,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nathanjzhao/node-record-with-binaries.git"
+    "url": "git+https://github.com/nathanjzhao/electron-audio-record.git"
   },
   "bugs": {
-    "url": "https://github.com/nathanjzhao/node-record-with-binaries/issues"
+    "url": "https://github.com/nathanjzhao/electron-audio-record/issues"
   },
-  "homepage": "https://github.com/nathanjzhao/node-record-with-binaries",
+  "homepage": "https://github.com/nathanjzhao/electron-audio-record",
   "directories": {
     "example": "examples"
   }

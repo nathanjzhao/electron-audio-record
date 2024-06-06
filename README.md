@@ -1,4 +1,4 @@
-# node-record-with-binaries
+# electron-audio-record
 
 This module is an extension of `node-record-lpcm16` to include binaries for ease of usage in Electron apps. Depending on demand, may explore implementing *hot word* detect given Snowboy's deprecation.
 
@@ -6,7 +6,7 @@ Records a 16-bit signed-integer linear pulse modulation code WAV audio file. The
 
 ## Installation
 
-`npm install node-record-with-binaries`
+`npm install electron-audio-record`
 
 ## Dependencies
 
@@ -22,17 +22,14 @@ endOnSilence          : false  // automatically end on silence (if supported)
 thresholdStart        : null   // silence threshold to start recording, overrides threshold (rec only)
 thresholdEnd          : null   // silence threshold to end recording, overrides threshold (rec only)
 silence               : '1.0'  // seconds of silence before ending
-recorder              : 'sox'  // Defaults to 'sox'
 device                : null   // recording device (e.g.: 'plughw:1')
 audioType             : 'wav'  // audio type to record
 ```
 
-> Please note that `arecord` might not work on all operating systems. If you can't capture any sound with `arecord`, try to change device (`arecord -l`).
-
 ## Usage
 
 ```javascript
-const recorder = require('node-record-with-binaries')
+const recorder = require('electron-audio-record')
 const fs = require('fs')
 
 const file = fs.createWriteStream('test.wav', { encoding: 'binary' })
@@ -47,7 +44,7 @@ recorder.record({
 You can pause, resume and stop the recording manually.
 
 ```javascript
-const recorder = require('node-record-with-binaries')
+const recorder = require('electron-audio-record')
 const fs = require('fs')
 
 const file = fs.createWriteStream('test.wav', { encoding: 'binary' })
@@ -70,16 +67,6 @@ setTimeout(() => {
   recording.stop()
 }, 3000)
 ```
-
-## Recorders
-
-The following recorders are included:
-
-* rec
-* sox
-* arecord
-
-**Note:** not all recorders support all features!
 
 ## Error handling
 
@@ -107,7 +94,7 @@ Debug logging is implemented with [visionmedia/debug](https://github.com/visionm
 Here's how you can write your own Siri in just 10 lines of code.
 
 ```javascript
-const recorder = require('../')
+const recorder = require('electron-audio-record')
 const request = require('request')
 
 const witToken = process.env.WIT_TOKEN // get one from wit.ai!
@@ -117,9 +104,7 @@ function parseResult (err, resp, body) {
   console.log(body)
 }
 
-const recording = recorder.record({
-  recorder: 'arecord'
-})
+const recording = recorder.record()
 
 recording
   .stream()
