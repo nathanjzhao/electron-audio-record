@@ -10,9 +10,7 @@ function parseResult (err, resp, body) {
   console.log(body)
 }
 
-const recording = recorder.record({
-  recorder: 'arecord'
-})
+const recording = recorder.record()
 
 recording
   .stream()

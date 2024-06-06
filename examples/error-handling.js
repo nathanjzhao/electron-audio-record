@@ -7,7 +7,6 @@ const file = fs.createWriteStream('test.wav', { encoding: 'binary' })
 
 // this will throw synchronously when the recorder does not exist
 const recording = recorder.record({
-  recorder: 'sox',
   device: 'does-not-exist'
 })
 
