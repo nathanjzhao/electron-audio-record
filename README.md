@@ -1,6 +1,6 @@
 # electron-audio-record
 
-This module is an extension of `node-record-lpcm16` to include binaries for ease of usage in Electron apps. Depending on demand, may explore implementing *hot word* detect given Snowboy's deprecation.
+This module is an extension of `node-record-lpcm16` to include binaries for ease of usage in Electron apps. Depending on demand, may explore implementing *hot word* detect given Snowboy's deprecation. This library records audio only using SoX, so there is no extra video data overhead during processing.
 
 Records a 16-bit signed-integer linear pulse modulation code WAV audio file. These audio files are fully compatible with both the [@google-cloud/speech](https://www.npmjs.com/package/@google-cloud/speech) and the [Wit.ai Speech API](https://wit.ai/docs/api#span-classtitle-verb-postspeech).
 
