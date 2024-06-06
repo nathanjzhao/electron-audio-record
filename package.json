@@ -1,0 +1,36 @@
+{
+  "name": "node-record-with-binaries",
+  "author": "Nathan Zhao <nathanzh@stanford.edu>",
+  "version": "1.0.1",
+  "description": "Record a microphone input stream using SoX binaries",
+  "license": "ISC",
+  "main": "index.js",
+  "dependencies": {
+    "debug": "^2.6.8"
+  },
+  "devDependencies": {
+    "standard": "^13.0.2"
+  },
+  "scripts": {
+    "test": "standard"
+  },
+  "keywords": [
+    "sox",
+    "audio",
+    "speech",
+    "record",
+    "electron",
+    "sox-binaries"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanjzhao/node-record-with-binaries.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nathanjzhao/node-record-with-binaries/issues"
+  },
+  "homepage": "https://github.com/nathanjzhao/node-record-with-binaries",
+  "directories": {
+    "example": "examples"
+  }
+}
