@@ -4,6 +4,8 @@ This module is an extension of `node-record-lpcm16` to include binaries for ease
 
 Records a 16-bit signed-integer linear pulse modulation code WAV audio file. These audio files are fully compatible with both the [@google-cloud/speech](https://www.npmjs.com/package/@google-cloud/speech) and the [Wit.ai Speech API](https://wit.ai/docs/api#span-classtitle-verb-postspeech).
 
+Note: For MacOS, must enable permissions for utilizing audio devices. Additionally, should `asarUnpack` this package within `node_modules` so that the binaries are accessible to the app in Electron.
+
 ## Installation
 
 `npm install electron-audio-record`

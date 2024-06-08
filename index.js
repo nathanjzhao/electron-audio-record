@@ -1,10 +1,25 @@
 'use strict'
 
+const os = require('os')
 const assert = require('assert')
 const debug = require('debug')('record')
 const { spawn } = require('child_process')
 const recorders = require('./recorders')
-const getPath = require('./utils/getPath')
+const path = require('path');
+
+function getPath() {
+  switch (os.platform()) {
+    case 'darwin':
+      return path.join(__dirname, 'bin', 'sox-14.4.2-darwin');
+    case 'win32':
+      return path.join(__dirname, 'bin', 'sox-14.4.2-win32');
+    case 'linux':
+      return path.join(__dirname, 'bin', 'sox-14.4.2-linux');
+    default:
+      throw new Error('Unsupported platform');
+  }
+}
+
 
 class Recording {
   constructor (options = {}) {
@@ -26,7 +41,8 @@ class Recording {
     const recorder = recorders.load(this.options.recorder)
     const { cmd, args, spawnOptions = {} } = recorder(this.options)
 
-    this.cmd = getPath() + '/' + cmd;
+    this.cmd = path.resolve(path.join(getPath(), cmd));
+    this.cmd = this.cmd.replace('app.asar', 'app.asar.unpacked');
     this.args = args
     this.cmdOptions = Object.assign({ encoding: 'binary', stdio: 'pipe' }, spawnOptions)
 
@@ -47,6 +63,8 @@ class Recording {
     this.process = cp // expose child process
     this._stream = rec // expose output stream
 
+    // rec.emit('error',`Recording started with command ${this.cmd} and arguments ${this.args.join(' ')}`);
+
     cp.on('close', code => {
       if (code === 0) return
       rec.emit('error', `${this.cmd} has exited with error code ${code}.
@@ -60,6 +78,7 @@ Enable debugging with the environment variable DEBUG=record.`
     })
 
     rec.on('data', chunk => {
+      console.log(chunk.length)
       debug(`Recording ${chunk.length} bytes`)
     })
 
